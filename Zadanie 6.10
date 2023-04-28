@@ -1,0 +1,43 @@
+using System;
+
+struct KandydatNaStudia
+{
+    public string nazwisko;
+    public int punktyMatematyka;
+    public int punktyInformatyka;
+    public int punktyJezykObcy;
+
+    public double ObliczPunkty()
+    {
+        return punktyMatematyka * 0.6 + punktyInformatyka * 0.5 + punktyJezykObcy * 0.2;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        KandydatNaStudia[] kandydaci = new KandydatNaStudia[3];
+
+        kandydaci[0].nazwisko = "Kowalski";
+        kandydaci[0].punktyMatematyka = 75;
+        kandydaci[0].punktyInformatyka = 80;
+        kandydaci[0].punktyJezykObcy = 60;
+
+        kandydaci[1].nazwisko = "Nowak";
+        kandydaci[1].punktyMatematyka = 80;
+        kandydaci[1].punktyInformatyka = 65;
+        kandydaci[1].punktyJezykObcy = 70;
+
+        kandydaci[2].nazwisko = "Kowalczyk";
+        kandydaci[2].punktyMatematyka = 90;
+        kandydaci[2].punktyInformatyka = 70;
+        kandydaci[2].punktyJezykObcy = 50;
+
+        Console.WriteLine("Lista kandydatów:");
+        foreach (KandydatNaStudia k in kandydaci)
+        {
+            Console.WriteLine("{0}: {1} punktów", k.nazwisko, k.ObliczPunkty());
+        }
+    }
+}
